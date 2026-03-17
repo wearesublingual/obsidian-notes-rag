@@ -130,7 +130,7 @@ def get_similar(note_path: str, limit: int = 5) -> list[dict]:
     note_content = "\n\n".join(r["content"] for r in results)
 
     # Generate embedding for the note content
-    note_embedding = embedder.embed(note_content[:8000])  # Limit for embedding
+    note_embedding = embedder.embed(note_content[:4000])  # Limit for embedding
 
     # Search for similar notes, excluding the source note
     all_results = store.search(note_embedding, limit=limit + 10)
